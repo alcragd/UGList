@@ -1,0 +1,18 @@
+{
+    "id": 51791710,
+    "name": "Auditory Breaker",
+    "author": "LazerBlitz",
+    "creators": ["LazerBlitz", "Manix"],
+    "verifier": "LuDan",
+    "verification": "https://www.youtube.com/watch?v=o5XaI69l9oc",
+    "percentToQualify": "60",
+    "password": "Free To Copy",
+    "records": [
+        {
+            "user": "alcragd",
+            "link": "https://www.youtube.com/watch?v=S1mo7aM2frA",
+            "percent": 100,
+            "hz": 60
+        }
+    ]
+}
