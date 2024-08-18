@@ -1,6 +1,6 @@
 [
     {
-        "role": "owner",
+        "role": "dev",
         "name": "alcra",
         "link": "https://www.youtube.com/@alcragd"
     },
@@ -13,11 +13,7 @@
         "role": "admin",
         "name": "LuDan",
         "link": "https://www.youtube.com/@ludangd"
-    },
-    {
-        "role": "dev",
-        "name": "alcra",
-        "link": "https://www.youtube.com/@alcragd"
     }
+    
 ]
 
