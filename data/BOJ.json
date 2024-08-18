@@ -1,0 +1,18 @@
+{
+    "id": 35448603,
+    "name": "Blade of Justice",
+    "author": "Manix",
+    "creators": ["Manix","LazerBlitz"],
+    "verifier": "LuDan",
+    "verification": "https://www.youtube.com/watch?v=uNXSuyLT4r4",
+    "percentToQualify": "60",
+    "password": "Not Copyable",
+    "records": [
+        {
+            "user": "Angelette",
+            "link": "https://www.youtube.com/watch?v=VlxqSlZvDug",
+            "percent": 100,
+            "hz": 60
+        }
+    ]
+}
