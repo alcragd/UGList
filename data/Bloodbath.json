@@ -1,0 +1,18 @@
+{
+    "id": 10565740,
+    "name": "Bloodbath",
+    "author": "Riot",
+    "creators": ["Many"],
+    "verifier": "LuDan",
+    "verification": "https://www.youtube.com/watch?v=1ktXEdum8q8",
+    "percentToQualify": "60",
+    "password": "Free To Copy",
+    "records": [
+        {
+            "user": "alcragd",
+            "link": "https://www.youtube.com/watch?v=ssgJxb7j98w",
+            "percent": 100,
+            "hz": "240fps"
+        }
+    ]
+}
