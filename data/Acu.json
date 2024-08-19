@@ -1,0 +1,31 @@
+{
+    "id": 61079355,
+    "name": "Acu",
+    "author": "Neigefeu",
+    "creators": [],
+    "verifier": "Angelette",
+    "verification": "https://www.youtube.com/watch?v=YKCiV2Nnn1Q",
+    "percentToQualify": "60",
+    "password": "Free To Copy",
+    "records": [
+        {
+            "user": "alcragd",
+            "link": "https://www.youtube.com/watch?v=55S_xgjuhmI",
+            "percent": 100,
+            "hz": "120Fps 60"
+        },
+        {
+            "user": "NirumaGD",
+            "link": "https://www.youtube.com/watch?v=MINHlKYps-s",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "LuDan",
+            "link": "https://www.youtube.com/watch?v=zkBnFGEZRvY",
+            "percent": 100,
+            "hz": "240Fps 165"
+        }
+
+    ]
+}
