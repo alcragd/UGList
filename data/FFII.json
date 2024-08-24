@@ -1,0 +1,25 @@
+{
+    "id": 59626284,
+    "name": "Future Funk II",
+    "author": "JonathanGD",
+    "creators": [],
+    "verifier": "Angelette",
+    "verification": "https://www.youtube.com/watch?v=6k0aiviDd48",
+    "percentToQualify": "60",
+    "password": "787153",
+    "records": [
+        {
+            "user": "NirumaGD",
+            "link": "https://www.youtube.com/watch?v=l9ZDbxk6Mu4",
+            "percent": 100,
+            "hz": 60
+        },
+        {
+            "user": "alcragd",
+            "link": "https://www.youtube.com/watch?v=cTpjZc6CbdA",
+            "percent": 100,
+            "hz": "120Fps 60"
+        }
+        
+    ]
+}
