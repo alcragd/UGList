@@ -185,12 +185,15 @@ export default {
                 return;
             }
         
-            const fullListMapped = fullList.map(([lvl, _], i) => ({
+            const fullListMapped = fullList
+            .filter(([lvl, err]) => lvl && !err)  // Filtrar niveles nulos o con errores
+            .map(([lvl], i) => ({
                 rank: i + 1,
                 id: lvl.id,
                 name: lvl.name,
                 video: lvl.verification,
             }));
+
         
             // Verificar si la lista se ha mapeado correctamente
             console.log("Mapped full list:", fullListMapped);
