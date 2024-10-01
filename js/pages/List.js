@@ -22,8 +22,16 @@ export default {
         </main>
         <main v-else class="page-list">
             <div class="list-container">
-                <table class="list" v-if="list">
-                    <tr v-for="([level, err], i) in list">
+                <!-- Barra de búsqueda -->
+                <input 
+                    type="text" 
+                    class="search-bar" 
+                    v-model="searchQuery" 
+                    placeholder="Search levels by name..." 
+                />
+
+                <table class="list" v-if="filteredLevels.length">
+                    <tr v-for="([level, err], i) in filteredLevels" :key="i">
                         <td class="rank">
                             <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
@@ -35,6 +43,7 @@ export default {
                         </td>
                     </tr>
                 </table>
+                <p v-if="filteredLevels.length === 0">No levels found.</p>
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
@@ -133,6 +142,7 @@ export default {
         loading: true,
         selected: 0,
         errors: [],
+        searchQuery: '',  // Agregamos la variable para la búsqueda
         roleIconMap,
         store
     }),
@@ -151,6 +161,13 @@ export default {
                     : this.level.verification
             );
         },
+        // Computed para filtrar los niveles según la búsqueda
+        filteredLevels() {
+            // Convertimos todo a minúsculas para hacer la búsqueda case-insensitive
+            return this.list.filter(([level]) => 
+                level?.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
+        }
     },
     async mounted() {
         // Hide loading spinner
@@ -167,7 +184,7 @@ export default {
                 ...this.list
                     .filter(([_, err]) => err)
                     .map(([_, err]) => {
-                        return `Failed to load level. (${err}.json)`;
+                        return `Failed to load level. (${err}.json)`; 
                     })
             );
             if (!this.editors) {
