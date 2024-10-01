@@ -174,9 +174,6 @@ export default {
         
             const fullList = await fetchList();
         
-            // Verificar si fetchList() devuelve los datos correctamente
-            console.log("Full list fetched:", fullList);
-        
             if (fullList.filter(([_, err]) => err).length > 0) {
                 this.loading = false;
                 this.showToast(
@@ -192,23 +189,14 @@ export default {
                 video: lvl.verification,
             }));
         
-            // Verificar si la lista se ha mapeado correctamente
-            console.log("Mapped full list:", fullListMapped);
-        
             // Excluir niveles que estén en la lista de excluidos
             const filteredList = fullListMapped.filter(level => !excludedLevels.includes(level.id));
-        
-            // Verificar si el filtrado se está realizando correctamente
-            console.log("Filtered list:", filteredList);
         
             const list = [];
             if (this.useMainList) list.push(...filteredList.slice(0, 75));
             if (this.useExtendedList) {
                 list.push(...filteredList.slice(75, 150));
             }
-        
-            // Verificar la lista final
-            console.log("Final list for roulette:", list);
         
             // Seleccionar aleatoriamente 100 niveles
             this.levels = shuffle(list).slice(0, 100);
