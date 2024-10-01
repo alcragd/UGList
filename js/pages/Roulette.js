@@ -121,6 +121,9 @@ export default {
 
         // Load progress from local storage
         const roulette = JSON.parse(localStorage.getItem('roulette'));
+        // Lista de IDs de niveles excluidos (esto solo será editable en el código)
+        const excludedLevels = ['97543536']; // IDs de los niveles a excluir
+
 
         if (!roulette) {
             return;
@@ -162,15 +165,15 @@ export default {
                 this.showToast('Give up before starting a new roulette.');
                 return;
             }
-
+        
             if (!this.useMainList && !this.useExtendedList) {
                 return;
             }
-
+        
             this.loading = true;
-
+        
             const fullList = await fetchList();
-
+        
             if (fullList.filter(([_, err]) => err).length > 0) {
                 this.loading = false;
                 this.showToast(
@@ -178,28 +181,32 @@ export default {
                 );
                 return;
             }
-
+        
             const fullListMapped = fullList.map(([lvl, _], i) => ({
                 rank: i + 1,
                 id: lvl.id,
                 name: lvl.name,
                 video: lvl.verification,
             }));
+        
+            // Excluir niveles que estén en la lista de excluidos
+            const filteredList = fullListMapped.filter(level => !excludedLevels.includes(level.id));
+        
             const list = [];
-            if (this.useMainList) list.push(...fullListMapped.slice(0, 75));
+            if (this.useMainList) list.push(...filteredList.slice(0, 75));
             if (this.useExtendedList) {
-                list.push(...fullListMapped.slice(75, 150));
+                list.push(...filteredList.slice(75, 150));
             }
-
-            // random 100 levels
+        
+            // Seleccionar aleatoriamente 100 niveles
             this.levels = shuffle(list).slice(0, 100);
             this.showRemaining = false;
             this.givenUp = false;
             this.progression = [];
             this.percentage = undefined;
-
+        
             this.loading = false;
-        },
+        },        
         save() {
             localStorage.setItem(
                 'roulette',
