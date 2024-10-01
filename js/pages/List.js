@@ -31,13 +31,13 @@ export default {
                 />
 
                 <table class="list" v-if="filteredLevels.length">
-                    <tr v-for="([level, err], i) in filteredLevels" :key="i">
+                    <tr v-for="({ level, err, originalIndex }, i) in filteredLevels" :key="i">
                         <td class="rank">
-                            <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-if="originalIndex + 1 <= 150" class="type-label-lg">#{{ originalIndex + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i">
+                        <td class="level" :class="{ 'active': selected == originalIndex, 'error': !level }">
+                            <button @click="selected = originalIndex">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                             </button>
                         </td>
@@ -107,31 +107,6 @@ export default {
                             </li>
                         </ol>
                     </template>
-                    <!--<h3>Submission Requirements</h3>
-                    <p>
-                        Achieved the record without using hacks (however, FPS bypass is allowed, up to 360fps)
-                    </p>
-                    <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
-                    </p>
-                    <p>
-                        Have either source audio or clicks/taps in the video. Edited audio only does not count
-                    </p>
-                    <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
-                    </p>
-                    <p>
-                        The recording must also show the player hit the endwall, or the completion will be invalidated.
-                    </p>
-                    <p>
-                        Do not use secret routes or bug routes
-                    </p>
-                    <p>
-                        Do not use easy modes, only a record of the unmodified level qualifies
-                    </p>
-                    <p>
-                        Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level
-                    </p>-->
                 </div>
             </div>
         </main>
@@ -163,10 +138,12 @@ export default {
         },
         // Computed para filtrar los niveles según la búsqueda
         filteredLevels() {
-            // Convertimos todo a minúsculas para hacer la búsqueda case-insensitive
-            return this.list.filter(([level]) => 
-                level?.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-            );
+            // Retornamos el nivel filtrado junto con su índice original
+            return this.list
+                .map((entry, index) => ({ level: entry[0], err: entry[1], originalIndex: index }))
+                .filter(({ level }) => 
+                    level?.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+                );
         }
     },
     async mounted() {
