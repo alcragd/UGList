@@ -8,7 +8,7 @@ export default {
             type: Array,
             required: true,
         },
-        verifier: {
+        first_ug_victor: {
             type: String,
             required: true,
         },
@@ -28,7 +28,7 @@ export default {
                 </p>
                 <div class="type-title-sm">First UG Victor</div>
                 <p class="type-body">
-                    <span>{{ verifier }}</span>
+                    <span>{{ first_ug_victor }}</span>
                 </p>
             </template>
             <template v-else>
@@ -41,7 +41,7 @@ export default {
                 </p>
                 <div class="type-title-sm">First UG Victor</div>
                 <p class="type-body">
-                    <span>{{ verifier }}</span>
+                    <span>{{ first_ug_victor }}</span>
                 </p>
             </template>
             <div class="type-title-sm">Publisher</div>
@@ -53,7 +53,7 @@ export default {
 
     computed: {
         selfVerified() {
-            return this.author === this.verifier && this.creators.length === 0;
+            return this.author === this.first_ug_victor && this.creators.length === 0;
         },
     },
 };
