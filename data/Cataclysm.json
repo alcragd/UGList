@@ -8,5 +8,11 @@
     "percentToQualify": "60",
     "password": "666777",
     "records": [
+        {
+            "user": "LuDan",
+            "link": "https://www.youtube.com/watch?v=TsYwrU4CIxc",
+            "percent": 100,
+            "hz": 240
+        }
     ]
 }

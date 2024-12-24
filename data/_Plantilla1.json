@@ -1,11 +1,11 @@
 {
     "id": 57436521,
-    "name": "SampleLevel1",
-    "author": "LevelUploader",
-    "creators": ["Creator1", "Creator2", "Creator3"],
-    "verifier": "Verifier",
+    "name": "Nombre Del Nivel",
+    "author": "(Nombre de quien subió el nivel)",
+    "creators": ["Creador 1", "Creador 2", "Creador 3"],
+    "verifier": "(first ug victor)", 
     "verification": "https://www.youtube.com/watch?v=ISTl28wKSXc",
-    "percentToQualify": 56,
+    "percentToQualify": 60,
     "password": "Not Copyable",
     "records": [
         {
